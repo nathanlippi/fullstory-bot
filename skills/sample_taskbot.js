@@ -1,4 +1,4 @@
-xf@/*
+/*
 
     This is a sample bot that provides a simple todo list function
     and demonstrates the Botkit storage system.
