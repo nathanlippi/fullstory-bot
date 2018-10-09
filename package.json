@@ -36,6 +36,9 @@
     "chatbots",
     "slack"
   ],
+  "engines": {
+      "node": "9.4.0"
+  },
   "author": "ben@howdy.ai",
   "license": "ISC"
 }
