@@ -40,7 +40,7 @@ function getLatestRecording(email, callback) {
         .set('Authorization', 'Basic ' + process.env.fullstoryAPIKey)
         .end((err, res) => {
             if(err) {
-                console.err("Problem getting latest recording: ", err);
+                console.error("Problem getting latest recording: ", err);
 
                 return callback(err);
             }
