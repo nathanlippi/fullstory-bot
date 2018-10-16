@@ -13,8 +13,11 @@ module.exports = function(controller) {
 
         getLatestRecording(email, function(err, recordingList) {
             if(err) {
-                return bot.replyPrivate(message,
-                    "We're having trouble retrieving FullStory recordings for " + email + " :(.");
+                var msg = "We're having trouble retrieving FullStory recordings for " + email + " :(.";
+
+                console.error(msg, err);
+
+                return bot.replyPrivate(message, msg);
             }
 
             if(!recordingList.length) {
@@ -37,6 +40,8 @@ function getLatestRecording(email, callback) {
         .set('Authorization', 'Basic ' + process.env.fullstoryAPIKey)
         .end((err, res) => {
             if(err) {
+                console.err("Problem getting latest recording: ", err);
+
                 return callback(err);
             }
 
